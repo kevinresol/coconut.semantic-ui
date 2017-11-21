@@ -12,7 +12,6 @@ class Dashboard extends coconut.ui.View<{
 	navbar:RenderResult,
 	content:RenderResult,
 	footer:RenderResult,
-	?rightMenu:RenderResult,
 }> {
 	function render() '
 		<div class="pushable">
