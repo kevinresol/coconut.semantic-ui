@@ -1,0 +1,20 @@
+{
+  "name": "coconut.semantic-ui",
+  "license": "MIT",
+  "tags": [
+    "coconut",
+    "semantic-ui"
+  ],
+  "classPath": "src",
+  "contributors": [
+    "kevinresol"
+  ],
+  "releasenote": "initial release",
+  "version": "0.0.0",
+  "dependencies": {
+    "lessie": "",
+    "coconut.vdom": "",
+    "coconut.router": "gh:kevinresol/coconut.router#rewrite",
+    "hxjs-semantic-ui": "gh:kevinresol/hxjs-semantic-ui"
+  }
+}
