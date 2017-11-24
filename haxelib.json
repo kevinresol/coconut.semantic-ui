@@ -14,7 +14,6 @@
   "dependencies": {
     "lessie": "",
     "coconut.vdom": "",
-    "coconut.router": "gh:kevinresol/coconut.router#rewrite",
     "hxjs-semantic-ui": "gh:kevinresol/hxjs-semantic-ui"
   }
 }
