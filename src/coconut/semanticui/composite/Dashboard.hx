@@ -1,8 +1,6 @@
 package coconut.semanticui.composite;
 
 import coconut.ui.*;
-import coconut.router.RouteData;
-import coconut.router.RouteData.*;
 import tink.pure.*;
 import js.jquery.Helper.*;
 
