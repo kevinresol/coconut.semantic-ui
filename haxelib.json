@@ -12,7 +12,8 @@
   "releasenote": "initial release",
   "version": "0.0.0",
   "dependencies": {
-    "lessie": "",
+    "lessie": "gh:back2dos/lessie",
+    "tink_pure": "",
     "coconut.vdom": "",
     "hxjs-semantic-ui": "gh:kevinresol/hxjs-semantic-ui"
   }
