@@ -5,12 +5,12 @@ import tink.pure.*;
 import js.jquery.Helper.*;
 
 @:less('dashboard.less')
-class Dashboard extends coconut.ui.View<{
-	renderSidebar:{className:String}->RenderResult,
-	navbar:RenderResult,
-	content:RenderResult,
-	footer:RenderResult,
-}> {
+class Dashboard extends coconut.ui.View {
+	@:attribute var renderSidebar:{className:String}->RenderResult;
+	@:attribute var navbar:RenderResult;
+	@:attribute var content:RenderResult;
+	@:attribute var footer:RenderResult;
+
 	function render() '
 		<div class="pushable">
 			<renderSidebar class="ui sidebar inverted vertical menu"/>

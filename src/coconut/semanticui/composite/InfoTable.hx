@@ -4,7 +4,8 @@ import tink.pure.List;
 
 using tink.CoreApi;
 
-class InfoTable extends coconut.ui.View<{entries:List<Named<String>>}> {
+class InfoTable extends coconut.ui.View {
+	@:attribute var entries:List<Named<String>>;
 	function render() '
 		<table class="ui unstackable very basic table">
 			<for ${entry in entries}>
