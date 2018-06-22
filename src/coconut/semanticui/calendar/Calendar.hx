@@ -8,12 +8,13 @@ class Calendar extends coconut.ui.View {
 	@:attr var type:CalendarType;
 	@:attr var onChange:Date->Void = null;
 	@:attr var formatDate:Date->String = null;
+	@:attr var value:Date = null;
 	
 	function render() '
 		<div class="ui calendar">
 			<div class="ui input left icon">
 				<i class="calendar icon"/>
-				<input type="text"/>
+				<input type="text" value=${format(value)}/>
 			</div>
 		</div>
 	';
@@ -26,10 +27,14 @@ class Calendar extends coconut.ui.View {
 				date: function (text) return text == '' ? null : untyped __js__('new Date({0})', text),
 			},
 			formatter: {
-				date: function (date:Date) return date == null ? '' : formatDate(date),
+				date: format,
 			},
 			onChange: onChange,
 		});
+	}
+	
+	function format(date:Date) {
+		return date == null ? '' : formatDate(date);
 	}
 		
 }
