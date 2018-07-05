@@ -5,9 +5,9 @@ import js.jquery.Helper.*;
 using DateTools;
 
 class Calendar extends coconut.ui.View {
-	@:attr var type:CalendarType;
+	@:attr var type:CalendarType = Date;
 	@:attr var onChange:Date->Void = null;
-	@:attr var formatDate:Date->String = null;
+	@:attr var formatDate:Date->String = function(date:Date) return date.toString();
 	@:attr var value:Date = null;
 	
 	function render() '
@@ -22,7 +22,7 @@ class Calendar extends coconut.ui.View {
 	
 	override function afterInit(e) {
 		(cast J(e)).calendar({
-			type: 'date',
+			type: type,
 			parser: {
 				date: function (text) return text == '' ? null : untyped __js__('new Date({0})', text),
 			},
