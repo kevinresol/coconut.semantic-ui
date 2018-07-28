@@ -11,7 +11,7 @@ class InfoTable extends coconut.ui.View {
 			<for ${entry in entries}>
 				<tr>
 					<td class="collapsing"><strong>${entry.title}</strong></td>
-					<td>
+					<td style="white-space:pre-wrap">
 						<if ${entry.href == null}>
 							${entry.value}
 						<else>
