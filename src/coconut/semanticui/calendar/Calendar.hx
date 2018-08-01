@@ -13,6 +13,7 @@ class Calendar extends coconut.ui.View {
 	function render() '
 		<div class="ui calendar">
 			<div class="ui input left icon">
+				<div class="ui popup calendar"/>
 				<i class="calendar icon"/>
 				<input type="text" value=${format(value)}/>
 			</div>
