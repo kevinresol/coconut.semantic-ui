@@ -6,13 +6,13 @@ import js.jquery.Helper.*;
 using tink.CoreApi;
 using tink.state.Promised;
 
-class Dropdown extends coconut.ui.View {
+class Dropdown<T:String> extends coconut.ui.View {
 	@:attr var className:String = 'ui selection dropdown';
-	@:attr var name:String;
-	@:attr var value:String = null;
-	@:attr var defaultText:String;
-	@:attr var entries:Promised<List<Named<String>>>;
-	@:attr var onChange:String->Void = null;
+	@:attr var name:String = null;
+	@:attr var value:T = null;
+	@:attr var defaultText:String = null;
+	@:attr var entries:Promised<List<Named<T>>>;
+	@:attr var onChange:T->Void = null;
 	
 	function render() {
 		trace('render dropdown ' + value);
