@@ -22,7 +22,7 @@ class Dashboard extends coconut.ui.View {
 	@:attribute var footer:RenderResult;
 
 	function render() '
-		<div class="pushable">
+		<div class="pushable" ref=${setup}>
 			<sidebar class="ui sidebar inverted vertical menu"/>
 			<div class="pusher">
 				<div>
@@ -40,16 +40,6 @@ class Dashboard extends coconut.ui.View {
 			</div>
 		</div>
 	';
-	
-	
-	
-	override function afterInit(e) {
-		setup(e);
-	}
-	
-	override function afterPatching(e) {
-		setup(e);
-	}
 	
 	function setup(e) {
 		J(e).children('.ui.sidebar').sidebar({
