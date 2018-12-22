@@ -11,7 +11,7 @@ class Calendar extends coconut.ui.View {
 	@:attr var value:Date = null;
 	
 	function render() '
-		<div class="ui calendar">
+		<div ref=${setup} class="ui calendar">
 			<div class="ui input left icon">
 				<div class="ui popup calendar"/>
 				<i class="calendar icon"/>
@@ -21,7 +21,7 @@ class Calendar extends coconut.ui.View {
 	';
 	
 	
-	override function afterInit(e) {
+	function setup(e) {
 		(cast J(e)).calendar({
 			type: type,
 			parser: {
