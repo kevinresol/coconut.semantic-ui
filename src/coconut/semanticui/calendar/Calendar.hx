@@ -33,6 +33,23 @@ class Calendar extends coconut.ui.View {
 			},
 			formatter: {
 				date: format,
+				cell: function(cell:Array<Dynamic>, date:Date, options) {
+					var c:Dynamic = cell[0];
+					c.style.cursor = 'pointer';
+					
+					if(!options.disabled) {
+						switch date.getDay() {
+							case 0: J(c).addClass('sunday');
+							case 1: J(c).addClass('monday');
+							case 2: J(c).addClass('tuesday');
+							case 3: J(c).addClass('wednesday');
+							case 4: J(c).addClass('thursday');
+							case 5: J(c).addClass('friday');
+							case 6: J(c).addClass('saturday');
+						}
+					}
+					return cell;
+				}
 			},
 			onChange: onChange,
 		});
