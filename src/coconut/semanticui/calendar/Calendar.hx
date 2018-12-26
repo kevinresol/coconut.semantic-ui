@@ -6,17 +6,20 @@ using DateTools;
 
 class Calendar extends coconut.ui.View {
 	@:attr var type:CalendarType = Date;
+	@:attr var inlined:Bool = false;
 	@:attr var onChange:Date->Void = null;
 	@:attr var formatDate:Date->String = function(date:Date) return date.toString();
 	@:attr var value:Date = null;
 	
 	function render() '
 		<div ref=${setup} class="ui calendar">
-			<div class="ui input left icon">
-				<div class="ui popup calendar"/>
-				<i class="calendar icon"/>
-				<input type="text" value=${format(value)}/>
-			</div>
+			<if ${!inlined}>
+				<div class="ui input left icon">
+					<div class="ui popup calendar"/>
+					<i class="calendar icon"/>
+					<input type="text" value=${format(value)}/>
+				</div>
+			</if>
 		</div>
 	';
 	
@@ -24,6 +27,7 @@ class Calendar extends coconut.ui.View {
 	function setup(e) {
 		(cast J(e)).calendar({
 			type: type,
+			'inline': inlined,
 			parser: {
 				date: function (text) return text == '' ? null : untyped __js__('new Date({0})', text),
 			},
