@@ -17,9 +17,9 @@ import js.jquery.Helper.*;
 @:less('dashboard.less')
 class Dashboard extends coconut.ui.View {
 	@:attribute var sidebar:{className:String}->RenderResult;
-	@:attribute var navbar:RenderResult;
-	@:attribute var content:RenderResult;
-	@:attribute var footer:RenderResult;
+	@:attribute var content:Children;
+	@:attribute var navbar:Children;
+	@:attribute var footer:Children;
 
 	function render() '
 		<div class="pushable" ref=${setup}>
@@ -31,11 +31,11 @@ class Dashboard extends coconut.ui.View {
 							<sidebar class="ui inverted attached vertical menu"/>
 						</div>
 						<div class="main">
-							${navbar}
-							${content}
+							${...navbar}
+							${...content}
 						</div>
 					</div>
-					${footer}
+					${...footer}
 				</div>
 			</div>
 		</div>
