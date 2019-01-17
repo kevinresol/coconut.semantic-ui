@@ -52,6 +52,7 @@ class Calendar extends coconut.ui.View {
 				}
 			},
 			onChange: function(date:Date, text, mode) {
+				if(date == null) return;
 				var date = switch type {
 					case DateTime: date;
 					case Date: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
@@ -60,7 +61,6 @@ class Calendar extends coconut.ui.View {
 					case Year: new Date(date.getFullYear(), 0, 0, 0, 0, 0);
 				}
 				onChange(date);
-				
 			}
 		});
 	}
