@@ -51,7 +51,17 @@ class Calendar extends coconut.ui.View {
 					return cell;
 				}
 			},
-			onChange: onChange,
+			onChange: function(date:Date, text, mode) {
+				var date = switch type {
+					case DateTime: date;
+					case Date: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
+					case Time: new Date(1970, 0, 1, date.getHours(), date.getMinutes(), date.getSeconds());
+					case Month: new Date(date.getFullYear(), date.getMonth(), 0, 0, 0, 0);
+					case Year: new Date(date.getFullYear(), 0, 0, 0, 0, 0);
+				}
+				onChange(date);
+				
+			}
 		});
 	}
 	
