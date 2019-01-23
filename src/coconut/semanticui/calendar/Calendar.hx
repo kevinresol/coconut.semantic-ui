@@ -8,7 +8,8 @@ class Calendar extends coconut.ui.View {
 	@:attr var type:CalendarType = Date;
 	@:attr var inlined:Bool = false;
 	@:attr var onChange:Date->Void = null;
-	@:attr var formatDate:Date->String = function(date:Date) return date.toString();
+	@:attr var formatDate:Date->String = function(date:Date) return date.format('%F');
+	@:attr var formatTime:Date->String = function(date:Date) return date.format('%H:%M');
 	@:attr var value:Date = null;
 	
 	function render() '
@@ -17,7 +18,7 @@ class Calendar extends coconut.ui.View {
 				<div class="ui input left icon">
 					<div class="ui popup calendar"/>
 					<i class="calendar icon"/>
-					<input type="text" value=${format(value)}/>
+					<input type="text"/>
 				</div>
 			</if>
 		</div>
@@ -32,7 +33,8 @@ class Calendar extends coconut.ui.View {
 				date: function (text) return text == '' ? null : untyped __js__('new Date({0})', text),
 			},
 			formatter: {
-				date: format,
+				time: _formatTime,
+				date: _formatDate,
 				cell: function(cell:Array<Dynamic>, date:Date, options) {
 					var c:Dynamic = cell[0];
 					c.style.cursor = 'pointer';
@@ -65,10 +67,8 @@ class Calendar extends coconut.ui.View {
 		});
 	}
 	
-	function format(date:Date) {
-		return date == null ? '' : formatDate(date);
-	}
-		
+	function _formatDate(date:Date) return date == null ? '' : formatDate(date);
+	function _formatTime(date:Date) return date == null ? '' : formatTime(date);
 }
 
 @:enum abstract CalendarType(String) to String {
