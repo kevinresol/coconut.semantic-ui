@@ -20,7 +20,7 @@ import js.jquery.Helper.*;
 
 @:less('dashboard.less')
 class Dashboard extends coconut.ui.View {
-	@:attr var sidebar:Children;
+	@:attr var sidebar:{hideSidebar:Void->Void}->Children;
 	@:attr var content:Children;
 	@:attr var navbar:{toggleSidebar:Void->Void}->Children;
 	@:attr var footer:Children;
@@ -36,13 +36,13 @@ class Dashboard extends coconut.ui.View {
 				animation="overlay"
 				onHide=${() -> sidebarVisible = false}
 			>
-				${...sidebar}
+				${...sidebar({hideSidebar: hideSidebar})}
 			</Sidebar>
 			<SidebarPusher>
 				<div>
 					<div class="full height">
 						<div class="toc">
-							<Menu class="inverted attached vertical menu">${...sidebar}</Menu>
+							<Menu class="inverted attached vertical menu">${...sidebar({hideSidebar: hideSidebar})}</Menu>
 						</div>
 						<div class="main">
 							${...navbar({toggleSidebar: toggleSidebar})}
@@ -54,6 +54,10 @@ class Dashboard extends coconut.ui.View {
 			</SidebarPusher>
 		</SidebarPushable>
 	;
+	
+	function hideSidebar() {
+		sidebarVisible = false;
+	}
 	
 	function toggleSidebar() {
 		sidebarVisible = !sidebarVisible;
