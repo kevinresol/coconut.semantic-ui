@@ -1,5 +1,7 @@
 package ;
 
+import coconut.semanticui.composite.ImagePicker;
+
 class RunTests {
 
   static function main() {
