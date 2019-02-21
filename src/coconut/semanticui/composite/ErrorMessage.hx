@@ -6,7 +6,6 @@ class ErrorMessage extends coconut.ui.View {
 	@:attr var error:Error;
 	@:attr var title:String = null;
 	
-	
 	function render() '
 		<div class="ui error message">
 			<div class="content">
