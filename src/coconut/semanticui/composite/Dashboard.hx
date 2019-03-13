@@ -28,7 +28,7 @@ class Dashboard extends coconut.ui.View {
 	@:state var sidebarVisible:Bool = false;
 
 	#if react
-	function render() 
+	function render() '
 		<SidebarPushable>
 			<Sidebar
 				visible=${sidebarVisible}
@@ -53,7 +53,7 @@ class Dashboard extends coconut.ui.View {
 				</div>
 			</SidebarPusher>
 		</SidebarPushable>
-	;
+	';
 	
 	function hideSidebar() {
 		sidebarVisible = false;
